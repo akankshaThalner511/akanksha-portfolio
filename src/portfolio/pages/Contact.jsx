@@ -29,8 +29,8 @@ const contactDetails = [
   {
     icon: "📍",
     label: "Location",
-    value: "Ameerpet, Hyderabad, India",
-    href: "https://www.google.com/maps/place/Ameerpet,+Hyderabad,+Telangana/",
+    value: "Hyderabad, India",
+    href: "https://www.google.com/maps/place/Hyderabad,+Telangana/",
   },
 ];
 

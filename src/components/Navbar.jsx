@@ -37,6 +37,7 @@ function Navbar() {
             {item.label}
           </a>
         ))}
+
         <a className="navResume" href="/Akanksha_Thalner_Resume.pdf" download>
           Resume
         </a>

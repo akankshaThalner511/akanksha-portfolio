@@ -32,19 +32,25 @@ function Greetings() {
           code and innovative solutions.
         </p>
 
-        <div className="portfolioSkills">
-          <img className="portfolioJavaLogo" src={javaLogo} alt="Java logo" />
+        <div className="portfolioSkills" aria-label="Core technical skills">
+          <span className="portfolioSkillItem">
+            <img className="portfolioJavaLogo" src={javaLogo} alt="Java logo" />
+            <strong>JAVA</strong>
+          </span>
 
-          <span className="portfolioCodeIcon">&lt;/&gt;</span>
+          <span className="portfolioSkillItem">
+            <span className="portfolioCodeIcon" aria-hidden="true">
+              &lt;/&gt;
+            </span>
+            <strong>CODE</strong>
+          </span>
 
-          <strong>JAVA</strong>
-
-          <span className="portfolioSkillDivider" />
-
-          <span className="portfolioMicroIcon">⚙</span>
-
-          <strong>MICROSERVICES</strong>
-          
+          <span className="portfolioSkillItem portfolioSkillWide">
+            <span className="portfolioMicroIcon" aria-hidden="true">
+              ⚙
+            </span>
+            <strong>MICROSERVICES</strong>
+          </span>
         </div>
       </section>
 
