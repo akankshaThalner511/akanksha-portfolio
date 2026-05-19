@@ -55,4 +55,4 @@ function Greetings() {
   );
 }
 
-export default Greetings;x
+export default Greetings;
