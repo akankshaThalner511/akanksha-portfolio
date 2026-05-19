@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <rect width="900" height="560" rx="24" fill="#0f172a"/>
+  <circle cx="160" cy="120" r="160" fill="#f97316" opacity=".18"/>
+  <circle cx="760" cy="430" r="170" fill="#2563eb" opacity=".22"/>
+  <rect x="190" y="120" width="520" height="330" rx="22" fill="#fff" opacity=".08" stroke="#93c5fd" stroke-opacity=".25"/>
+  <rect x="250" y="180" width="110" height="190" rx="12" fill="#2563eb"/>
+  <rect x="395" y="180" width="110" height="190" rx="12" fill="#16a34a"/>
+  <rect x="540" y="180" width="110" height="190" rx="12" fill="#f97316"/>
+  <text x="245" y="420" fill="#cbd5e1" font-size="24" font-family="Arial">Book Store Application</text>
+</svg>

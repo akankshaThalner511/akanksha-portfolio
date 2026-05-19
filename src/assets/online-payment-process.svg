@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <rect width="900" height="560" rx="24" fill="#0f172a"/>
+  <circle cx="190" cy="120" r="160" fill="#2563eb" opacity=".22"/>
+  <circle cx="760" cy="430" r="170" fill="#16a34a" opacity=".18"/>
+  <rect x="160" y="130" width="580" height="300" rx="22" fill="#fff" opacity=".08" stroke="#93c5fd" stroke-opacity=".26"/>
+  <rect x="220" y="200" width="460" height="60" rx="12" fill="#2563eb"/>
+  <rect x="220" y="295" width="180" height="42" rx="10" fill="#fff" opacity=".16"/>
+  <rect x="430" y="295" width="250" height="42" rx="10" fill="#fff" opacity=".16"/>
+  <text x="245" y="239" fill="#fff" font-size="28" font-weight="700" font-family="Arial">Payment Integration</text>
+  <text x="220" y="385" fill="#cbd5e1" font-size="22" font-family="Arial">Secure APIs • Redis • Microservices</text>
+</svg>

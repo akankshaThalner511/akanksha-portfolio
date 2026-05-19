@@ -1,0 +1,510 @@
+.experienceSection {
+  position: relative;
+  width: 100%;
+  padding: 88px 4%;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 6%, rgba(249, 115, 22, 0.08), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 52%, #f8fafc 100%);
+  overflow: hidden;
+}
+
+.experienceBackground {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.experienceGridPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, transparent, #000 14%, #000 78%, transparent);
+}
+
+.experienceOrb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  filter: blur(16px);
+  opacity: 0.34;
+  animation: experienceOrbFloat 9s ease-in-out infinite;
+}
+
+.experienceOrbOne { left: -90px; top: 130px; background: rgba(37, 99, 235, 0.16); }
+.experienceOrbTwo { right: -100px; top: 360px; background: rgba(249, 115, 22, 0.12); animation-delay: 1.4s; }
+
+.experienceContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.experienceHeader {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto 38px;
+  padding: 34px 28px;
+  text-align: center;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.86));
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  animation: experienceHeaderIn 0.8s ease both;
+}
+
+.experienceEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  border-radius: 5px;
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.09);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.experienceEyebrowDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #f97316);
+  box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.12);
+}
+
+.experienceHeader h2 {
+  margin: 0;
+  color: #020617;
+  font-size: clamp(2.15rem, 4.6vw, 4.2rem);
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: -2px;
+}
+
+.experienceHeader h2 span {
+  display: block;
+  color: #2563eb;
+}
+
+.experienceHeader p {
+  max-width: 780px;
+  margin: 20px auto 0;
+  color: #475569;
+  font-size: 1.02rem;
+  line-height: 1.78;
+  font-weight: 650;
+}
+
+.experienceHeaderStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 680px;
+  margin: 26px auto 0;
+}
+
+.experienceHeaderStats span {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 5px;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.experienceHeaderStats strong {
+  color: #0f172a;
+  font-size: 1.16rem;
+  font-weight: 950;
+}
+
+.experienceMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 34px 0 24px;
+}
+
+.experienceMetricCard {
+  position: relative;
+  min-height: 150px;
+  padding: 20px;
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.26s ease;
+}
+
+.experienceMetricCard:hover,
+.experienceMetricCard.activeMetric {
+  transform: translateY(-7px);
+  border-color: rgba(37, 99, 235, 0.36);
+  box-shadow: 0 28px 62px rgba(15, 23, 42, 0.13);
+}
+
+.experienceMetricCard::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa, #f97316);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.3s ease;
+}
+
+.experienceMetricCard:hover::after,
+.experienceMetricCard.activeMetric::after { transform: scaleX(1); }
+
+.metricSerial {
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 950;
+}
+
+.metricIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #0f172a);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.metricIcon span {
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.metricContent span {
+  display: block;
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.metricContent strong {
+  display: block;
+  color: #0f172a;
+  font-size: 1.14rem;
+  line-height: 1.3;
+  font-weight: 950;
+}
+
+.metricContent p {
+  margin: 9px 0 0;
+  color: #64748b;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.experienceDynamicBar {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 20px;
+  align-items: center;
+  margin: 0 0 22px;
+  padding: 18px;
+  border-radius: 5px;
+  background: rgba(15, 23, 42, 0.96);
+  color: #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.15);
+}
+
+.dynamicBarContent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dynamicBarIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: rgba(37, 99, 235, 0.28);
+}
+
+.dynamicBarContent small {
+  display: block;
+  margin-bottom: 4px;
+  color: #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dynamicBarContent strong { color: #ffffff; font-weight: 950; }
+.dynamicProgress { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.12); overflow: hidden; }
+.dynamicProgress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #2563eb, #60a5fa, #f97316); animation: autoProgress var(--delay) linear forwards; }
+.dynamicProgress span.progressPaused { animation-play-state: paused; }
+
+.experienceTechMarquee {
+  margin-bottom: 26px;
+  padding: 14px 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.techMarqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 14px;
+  animation: techMarquee 25s linear infinite;
+}
+
+.techMarqueeTrack span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 11px 18px;
+  border-radius: 5px;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  font-size: 0.96rem;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.techIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+.techIcon img { width: 21px; height: 21px; object-fit: contain; }
+.techIconText { color: #2563eb; font-size: 0.62rem; font-weight: 950; }
+
+.experienceNavigator {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.experienceNavigator button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 118px;
+  padding: 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.07);
+  transition: 0.25s ease;
+}
+
+.experienceNavigator button:hover,
+.experienceNavigator button.activeNavItem {
+  transform: translateY(-6px);
+  background: #0f172a;
+  border-color: #0f172a;
+}
+
+.experienceNavigator button > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #2563eb;
+  font-size: 0.84rem;
+  font-weight: 950;
+}
+
+.experienceNavigator strong { display: block; margin-bottom: 5px; color: #0f172a; font-size: 1.02rem; font-weight: 950; }
+.experienceNavigator small { color: #64748b; font-size: 0.82rem; font-weight: 850; }
+.experienceNavigator em { font-style: normal; font-size: 1.25rem; }
+.experienceNavigator button:hover strong, .experienceNavigator button.activeNavItem strong,
+.experienceNavigator button:hover small, .experienceNavigator button.activeNavItem small { color: #ffffff; }
+
+.experienceSelectedPanel { position: relative; width: 100%; padding: 8px 0 22px; }
+.experienceSliderShell {
+  position: relative;
+  width: 100%;
+  padding: 18px 58px 20px;
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.95));
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  box-shadow: 0 32px 88px rgba(15, 23, 42, 0.24);
+  overflow: hidden;
+}
+
+.experienceSliderTop {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(191, 219, 254, 0.14);
+}
+
+.sliderTopLeft,
+.sliderTopRight { display: flex; align-items: center; gap: 12px; }
+.sliderLiveDot { width: 12px; height: 12px; border-radius: 999px; background: #22c55e; }
+.sliderTopLeft small { display: block; margin-bottom: 3px; color: #bfdbfe; font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+.sliderTopLeft strong { color: #ffffff; font-size: 1.02rem; font-weight: 950; }
+.sliderTopRight span, .sliderTopRight b { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 11px; border-radius: 5px; color: #e0f2fe; background: rgba(37, 99, 235, 0.16); border: 1px solid rgba(147, 197, 253, 0.18); font-size: 0.82rem; font-weight: 900; }
+.sliderTopRight b { color: #ffffff; background: rgba(249, 115, 22, 0.18); }
+
+.experienceCardsViewport {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 28px 72px rgba(15, 23, 42, 0.18);
+}
+
+.experienceViewportBackdrop {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.09), transparent 24%),
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  pointer-events: none;
+}
+
+.experienceCardsTrack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  transform: translateX(calc(var(--active-index) * -100%));
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experienceCard {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 520px;
+  padding: 34px;
+  opacity: 0.45;
+  transform: scale(0.98);
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.experienceCard.activeExperience { opacity: 1; transform: scale(1); }
+.experienceCardGlow { position: absolute; top: -120px; right: -120px; width: 270px; height: 270px; border-radius: 50%; background: radial-gradient(circle, rgba(37, 99, 235, 0.16), transparent 64%); pointer-events: none; }
+.experienceCardTop { position: relative; z-index: 1; display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: start; }
+.experienceMarker { display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 5px; color: #ffffff; background: linear-gradient(135deg, #2563eb, #0f172a); box-shadow: 0 14px 28px rgba(15, 23, 42, 0.22); }
+.experienceMarker span { font-size: 0.98rem; font-weight: 950; }
+.experienceCategory { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; color: #2563eb; font-size: 0.78rem; font-weight: 950; letter-spacing: 1.4px; text-transform: uppercase; }
+.experienceHeadingBlock h3 { margin: 0; color: #020617; font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 950; line-height: 1.08; letter-spacing: -1px; }
+.experienceCompany { display: inline-flex; margin-top: 11px; color: #2563eb; font-size: 1.02rem; font-weight: 900; }
+.experiencePeriod { justify-self: end; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 5px; color: #0f172a; background: #eef4ff; border: 1px solid #dbeafe; font-size: 0.86rem; font-weight: 950; white-space: nowrap; }
+.experienceMetaGrid { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 18px; }
+.experienceMetaGrid span { display: inline-flex; padding: 10px 12px; border-radius: 5px; color: #334155; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 0.86rem; font-weight: 850; }
+.experienceSummary { position: relative; z-index: 1; margin: 0 0 18px; color: #334155; font-size: 1rem; line-height: 1.78; font-weight: 650; }
+.experienceFocusGrid { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
+.experienceFocusGrid span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 11px; border-radius: 5px; color: #0f172a; background: rgba(248, 250, 252, 0.95); border: 1px solid #e2e8f0; font-size: 0.82rem; font-weight: 900; }
+.experienceFocusGrid i { color: #2563eb; font-size: 0.68rem; font-style: normal; }
+.experienceContentGrid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.95fr); gap: 26px; align-items: start; }
+.experienceMiniTitle { margin-bottom: 14px; color: #0f172a; font-size: 0.9rem; font-weight: 950; letter-spacing: 1px; text-transform: uppercase; }
+.experienceHighlightList { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+.experienceHighlightList li { display: grid; grid-template-columns: auto 1fr; gap: 13px; align-items: start; padding: 15px 16px; border-radius: 5px; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0; font-size: 0.95rem; line-height: 1.68; font-weight: 720; }
+.highlightIcon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-top: 2px; border-radius: 5px; color: #ffffff; background: linear-gradient(135deg, #2563eb, #0f172a); font-size: 0.78rem; font-weight: 950; }
+.experienceSidePanel { display: grid; gap: 15px; }
+.experienceImpactPanel, .experienceTechPanel { padding: 19px; border-radius: 5px; overflow: hidden; }
+.experienceImpactPanel { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07); }
+.experienceImpactPanel h4, .experienceTechPanel h4 { margin: 0 0 14px; font-size: 0.92rem; font-weight: 950; letter-spacing: 1.1px; text-transform: uppercase; }
+.experienceImpactGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.experienceImpactGrid span { padding: 10px; border-radius: 5px; color: #334155; background: #f8fafc; border: 1px solid #e2e8f0; font-size: 0.78rem; font-weight: 900; }
+.experienceTechPanel { background: linear-gradient(145deg, #0f172a, #111827); border: 1px solid rgba(147, 197, 253, 0.16); color: #ffffff; }
+.experienceTechTags { display: flex; flex-wrap: wrap; gap: 9px; }
+.experienceTechTags span { display: inline-flex; align-items: center; gap: 7px; padding: 9px 10px; border-radius: 5px; color: #e0f2fe; background: rgba(37, 99, 235, 0.18); border: 1px solid rgba(147, 197, 253, 0.18); font-size: 0.8rem; font-weight: 850; }
+.experienceControl { position: absolute; top: 50%; z-index: 5; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 78px; border: 1px solid rgba(191, 219, 254, 0.22); border-radius: 5px; color: #ffffff; background: rgba(15, 23, 42, 0.92); box-shadow: 0 18px 36px rgba(15, 23, 42, 0.28); font-size: 2.1rem; font-weight: 900; cursor: pointer; transition: 0.25s ease; }
+.experienceControl:hover { background: #2563eb; transform: translateY(-50%) scale(1.04); }
+.experienceControlLeft { left: 10px; }
+.experienceControlRight { right: 10px; }
+.experienceSliderBottom { position: relative; z-index: 2; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.experienceSliderBottom span { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 12px; border-radius: 5px; color: #dbeafe; background: rgba(255, 255, 255, 0.075); border: 1px solid rgba(191, 219, 254, 0.14); font-size: 0.8rem; font-weight: 850; }
+.experienceDots { display: flex; justify-content: center; gap: 9px; margin-top: 12px; }
+.experienceDots button { width: 9px; height: 9px; border: 0; border-radius: 999px; background: #cbd5e1; cursor: pointer; transition: 0.25s ease; }
+.experienceDots button.activeDot { width: 34px; background: linear-gradient(90deg, #2563eb, #f97316); }
+
+@keyframes autoProgress { from { width: 0%; } to { width: 100%; } }
+@keyframes techMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes experienceHeaderIn { from { opacity: 0; transform: translateY(28px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes experienceOrbFloat { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(22px,-26px,0) scale(1.08); } }
+
+@media (max-width: 1080px) {
+  .experienceNavigator, .experienceMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .experienceContentGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 780px) {
+  .experienceSection { padding: 72px 16px; }
+  .experienceHeader { padding: 26px 18px; text-align: left; }
+  .experienceHeaderStats, .experienceMetricGrid, .experienceNavigator { grid-template-columns: 1fr; }
+  .experienceDynamicBar { grid-template-columns: 1fr; }
+  .experienceSliderShell { padding: 16px; }
+  .experienceControl { display: none; }
+  .experienceSliderTop, .experienceCardTop { grid-template-columns: 1fr; flex-direction: column; align-items: flex-start; }
+  .experienceCard { padding: 22px; }
+  .experiencePeriod { justify-self: start; white-space: normal; }
+  .experienceHighlightList li { grid-template-columns: 1fr; }
+  .experienceImpactGrid { grid-template-columns: 1fr; }
+}
