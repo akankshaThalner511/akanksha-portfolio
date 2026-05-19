@@ -25,7 +25,7 @@ function Greetings() {
           AKANKSHA <br /> THALNER
         </h1>
 
-        <h2 className="portfolioRole">JAVA DEVELOPER</h2>
+        <h2 className="portfolioRole">FULL-STACK DEVELOPER</h2>
 
         <p className="portfolioDescription">
           Building efficient, scalable and user-friendly applications with clean
